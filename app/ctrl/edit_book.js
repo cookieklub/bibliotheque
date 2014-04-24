@@ -138,7 +138,7 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
             .then(function(response){
                 console.log(response);
                 alert('Livre supprimé.');
-                window.location.href = '/';
+                window.location.href = '#/';
             });
         }
     };
