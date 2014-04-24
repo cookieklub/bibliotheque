@@ -23,6 +23,7 @@ var config = {
 		if(host == $environments[environment].host){
 			config.base_url = $environments[environment].url + "api/laravel/public/";
 			config.upload_url = $environments[environment].url + "api/laravel/public/uploads/";
+			console.log(config);
 			break;
 		}
 	}
