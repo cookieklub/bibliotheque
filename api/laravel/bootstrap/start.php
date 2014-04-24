@@ -31,6 +31,11 @@ $env = $app->detectEnvironment(array(
 
 ));
 
+$environments = array(
+   'local' => array('localhost'),
+   'remote' => array('http://cookieklub.com')
+);
+
 /*
 |--------------------------------------------------------------------------
 | Bind Paths
