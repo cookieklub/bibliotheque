@@ -1,3 +1,4 @@
+// ENVIRONMENTS
 var $environments = {
 	local:{
 		url:'http://localhost:8888/',
@@ -15,6 +16,7 @@ var config = {
 	upload_url:$environments['remote'].url + "api/laravel/public/uploads/"
 };
 
+// AUTOMATICALLY DETECTS ENVIRONMENT
 (function Environment(){
 	var host = location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
 	for(environment in $environments){
