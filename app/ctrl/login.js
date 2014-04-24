@@ -10,6 +10,7 @@ function LoginCtrl($scope, $rootScope){
 		}
 	};
 	$scope.init = function(){
+		$scope.environment = location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
 		if($rootScope.session){
 			window.location.href = '#/';
 		}
