@@ -865,6 +865,7 @@ header {
       font-family: "Helvetica Neue Ltd Std Roman";
       margin-bottom: 30px; }
     .screen article .content .illustration {
+      position: relative;
       width: 260px;
       display: inline-block;
       vertical-align: top; }
@@ -873,8 +874,8 @@ header {
         -moz-box-sizing: border-box; }
       .screen article .content .illustration i {
         position: absolute;
-        left: -40px;
-        top: 180px;
+        left: -100px;
+        top: 0px;
         z-index: 12000;
         display: block;
         width: 150px;

@@ -115,12 +115,13 @@
 		}
 		.content{
 			.illustration{
+				position: relative;
 				width: 260px;
 				@include inline();
 				@include box-sizing();
 				i{
 					position: absolute;
-					left:-40px;top:180px;
+					left:-100px;top:0px;
 					z-index: 12000;
 					@include sprite($x:2, $y:0, $dx:150px, $dy:75px, $error_x:-37.5px, $error_y:0px, $scale:1.2, $mobile_scale:1, $color:transparent);
 				}
