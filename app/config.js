@@ -1,6 +1,18 @@
-// ENVIRONMENTS
+var config = {};
+
+// FRONT END ENVIRONMENTS
+function set_environment(url){
+	// BASE URLS USED
+	config.base_url = url + "api/laravel/public/"; // API REQUESTS
+	config.upload_url = url + "api/laravel/public/uploads/"; // SOURCE TO UPLOADS
+}
+
 var $environments = {
+	// SETS DEFAULT ENVIRONMENT, IF NOT RECOGNIZED
 	default:'remote',
+	// DEFINES CURRENT HOST
+	host:location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/",
+	// ENVIRONMENTS
 	local:{
 		url:'http://localhost:8888/',
 		host:'http://localhost:8888/'
@@ -12,20 +24,15 @@ var $environments = {
 };
 
 // DEFAULT SETTINGS
-var config = {
-	base_url:$environments[$environments.default].url + "api/laravel/public/",
-	upload_url:$environments[$environments.default].url + "api/laravel/public/uploads/"
-};
+set_environment($environments[$environments.default].url);
 
-// AUTOMATICALLY DETECTS ENVIRONMENT
+// AUTOMATICALLY DETECTS AND SETS ENVIRONMENT
 (function Environment(){
-	var host = location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
+	var 
 	for(environment in $environments){
 		if(host == $environments[environment].host){
-			config.base_url = $environments[environment].url + "api/laravel/public/";
-			config.upload_url = $environments[environment].url + "api/laravel/public/uploads/";
+			set_environment($environments[environment].url);
 			break;
 		}
 	}
 })();
-
