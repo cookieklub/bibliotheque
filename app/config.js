@@ -1,5 +1,6 @@
 // ENVIRONMENTS
 var $environments = {
+	default:'remote',
 	local:{
 		url:'http://localhost:8888/',
 		host:'http://localhost:8888/'
@@ -12,8 +13,8 @@ var $environments = {
 
 // DEFAULT SETTINGS
 var config = {
-	base_url:$environments['remote'].url + "api/laravel/public/",
-	upload_url:$environments['remote'].url + "api/laravel/public/uploads/"
+	base_url:$environments[$environments.default].url + "api/laravel/public/",
+	upload_url:$environments[$environments.default].url + "api/laravel/public/uploads/"
 };
 
 // AUTOMATICALLY DETECTS ENVIRONMENT
