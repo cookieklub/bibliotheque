@@ -28,7 +28,6 @@ set_environment($environments[$environments.default].url);
 
 // AUTOMATICALLY DETECTS AND SETS ENVIRONMENT
 (function Environment(){
-	var 
 	for(environment in $environments){
 		if(host == $environments[environment].host){
 			set_environment($environments[environment].url);
