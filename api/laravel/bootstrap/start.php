@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'local' => array('localhost:8888'),
-	'remote' => array('http://www.cookieklub.com/projects/bibliotheque'),
+	'remote' => array('http://cookieklub.com'),
 
 ));
 
