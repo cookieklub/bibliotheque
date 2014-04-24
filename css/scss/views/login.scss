@@ -1,0 +1,17 @@
+.block{
+	@include drop-shadow(3px);
+	@include box-sizing();
+	margin: auto;
+	width:600px;
+	background: $ink_grey_light;
+	padding: 40px;
+	h1{
+		text-align: center;
+		font-size: 38px;
+		color: $ink_blue_dark;
+		font-family: $font_ultra_light;
+	}
+	input{
+		text-align: center;
+	}
+}

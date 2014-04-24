@@ -1,0 +1,72 @@
+// CONFIG{ ----------
+
+$screen_width:960px;
+
+$font:'Helvetica Neue Ltd Std Medium';
+$fontcn:'Helvetica Neue Ltd Std Medium Condensed';
+$font_bold:'Helvetica Neue Ltd Std Bold';
+$font_bold_cn:'Helvetica Neue Ltd Std Bold Condensed';
+$font_roman:'Helvetica Neue Ltd Std Roman';
+$font_ultra_light:'Helvetica Neue Ltd Std Ultra Light';
+$font_thin:'Helvetica Neue Ltd Std Thin';
+
+$ratio: 0.7;
+$ratio_txt: 0.85;
+$ratio_icon: 0.8;
+
+// Z INDEX
+$index_screen:0;
+$index_header:1;
+
+$index_level_2:10000;
+$index_level_1:$index_level_2 + 10000;
+$index_level_modal:$index_level_1 + 10000;
+
+$index_drop_down:$index_level_2; // dropdowns
+
+$index_menu:$index_level_1; // menu
+$index_cart:$index_level_1 + 1; // cart
+$index_responsive_menu:$index_level_1 + 2; // repsonsive menu
+$index_login_box:$index_level_1 + 3; // login box
+
+$index_modal:$index_level_modal;
+
+// COLOR PATTERN
+$ink_home_red:#E72533;
+$ink_home_purple:#A81880;
+$ink_home_yellow:#FECE48;
+$ink_red_danger:#F73844;
+$ink_red:#F73844;
+$ink_red_light:#fa505b;
+$ink_red_ultra_light:#f68c93;
+$ink_blue:#0080BC;
+$ink_blue_light:#E8F3F7;
+$ink_blue_light_darker:#d8dbdf;
+$ink_blue_dark:#21466B;
+$ink_blue_alt:#0C63B5;
+$ink_yellow:#FFDD00;
+$ink_yellow_light:#FFEE55;
+$ink_green:#51C043;
+$ink_green_light_3:#83e376;
+$ink_green_light_2:#67D659;
+$ink_green_light:#AFFA00;
+$ink_black:#000000;
+$ink_white:#FFFFFF;
+$ink_grey:#DDD;
+$ink_grey_light:#EEE;
+$ink_grey_dark:#AAA;
+
+$ink_purple:#433E49;
+$ink_purple_light:#6B6477;
+$ink_purple_ultra_light:#E1E0E2;
+$ink_grey:#C1C7C9;
+$ink_grey_ultra_light:#DEE1E2;
+$ink_grey_light:#ECF0F1;
+$ink_blue_dark:#2C3E50;
+$ink_blue_light:#4A7A86;
+$ink_blue_ultra_light:#D7DBDE;
+$ink_red:#C0392B;
+$ink_white:#FFFFFF;
+$ink_black:#000000;
+
+// }CONFIG ----------

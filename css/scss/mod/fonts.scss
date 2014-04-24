@@ -1,0 +1,34 @@
+// FONTS{ ----------
+@font-face{
+    font-family:'Helvetica Neue Ltd Std Thin';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-Th.otf')format('opentype');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Bold';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-Bd.otf')format('opentype');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Medium';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-Md.otf')format('opentype');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Medium Condensed';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-MdCn.otf')format('opentype');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Roman';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-Roman.otf')format('opentype'),
+        url('fonts/HelveticaNeueLTStd-Roman.eot')format('eot'),
+        url('fonts/HelveticaNeueLTStd-Roman.woff')format('woff');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Bold Condensed';
+    src:url('fonts/HelveticaNeueLTSTD/HelveticaNeueLTStd-BdCn.otf')format('opentype');
+}
+@font-face{
+	font-family:'Helvetica Neue Ltd Std Ultra Light';
+    src:url('fonts/HelveticaNeueLTSTD/helveticaNeueUltraLight/HelveticaNeueUltraLight.eot')format('eot'),
+        url('fonts/HelveticaNeueLTSTD/helveticaNeueUltraLight/HelveticaNeueUltraLight.woff')format('woff');
+}
+
+// }FONTS ----------

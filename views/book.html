@@ -1,0 +1,73 @@
+<div ng-include="'views/print_book.html'" scope="" onload=""></div>
+<header>
+	<div class="content">
+		<div class="left">
+			<i class="back" ng-click="navigate('/')"></i>
+		</div>
+		<div class="right">
+			<i class="print" print=".print::{{ BOOK.titre }}"></i>
+			<i class="edit" ng-click="edit_book()"></i>
+		</div>
+	</div>
+</header>
+
+<div class="screen">
+	<article>
+		<div class="flag-read" ng-show="BOOK.read"></div>
+		<div class="flag-love" ng-show="BOOK.love"></div>
+		<div class="title">{{ empty_data(BOOK.titre, 'Aucun Titre') }}</div>
+		<div class="sub-title">{{ empty_data(BOOK.auteur, 'Auteur Inconnu') }}, {{ '«'+empty_data(BOOK.titre, 'Aucun titre')+'»' }} , {{ empty_data(BOOK.edition, 'Edition Inconnue') }}, {{ empty_data(BOOK.annee, 'Année d\'édition inconnue') }}</div>
+		<div class="content">
+			<div class="illustration">
+				<i></i>
+				<img ng-src="{{ upload_url(BOOK.illustration, 'no-image.png') }}" alt="illustration du livre: {{ BOOK.titre }}">
+			</div>
+			<div class="infos">
+				<div class="row">
+					<div class="info">
+						<i class="public"></i>
+						{{ empty_data(BOOK.public, 'Aucune Information') }}
+					</div>
+					<div class="info pointer" ng-show="BOOK.site" ng-click-js="new_tab('{{ BOOK.site }}');">
+						<i class="site"></i>
+						<a href="">Site Internet</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="info">
+						<i class="provenance"></i>
+						{{ empty_data(BOOK.provenance, 'Aucune Information') }}
+					</div>
+					<!-- 
+					<div class="info">
+						<i class="auteur"></i>
+						<a>Biographie de l'auteur</a>
+					</div> 
+					-->
+				</div>
+			</div>
+		</div>
+
+		<div class="block">
+			<h3>Résumé</h3>
+			<p>{{ empty_data(BOOK.resume, 'Aucun résumé') }}</p>
+		</div>
+
+		<div class="block" ng-hide="!BOOK.avis">
+			<h3>Avis Personnel</h3>
+			<p>{{ empty_data(BOOK.avis, 'Aucun avis personnel') }}</p>
+		</div>
+
+		<div class="block" ng-hide="!BOOK.pedagogie">
+			<h3>Pédagogie</h3>
+			<p>{{ empty_data(BOOK.pedagogie, 'Aucune pédagogie') }}</p>
+		</div>
+
+		<div class="block" ng-hide="!BOOK.biographie">
+			<h3>Biographie de l'auteur</h3>
+			<p>{{ empty_data(BOOK.biographie, 'Aucune biographie') }}</p>
+		</div>
+		
+	</article>
+
+</div>

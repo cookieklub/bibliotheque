@@ -1,0 +1,100 @@
+// FUNCTIONS
+
+// ICONS
+@mixin sprite($x:0, $y:0, $dx:75px, $dy:75px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent){
+    // SPRITE DATA
+    $sprite_url:'assets/sprite.png';
+    $sprite_square:75;
+    $sprite_width:$sprite_square*10px;
+    $sprite_height:$sprite_square*5px;
+    // BLOCK
+    display:block;
+    width:$dx;
+    height:$dy;
+    // BACKGROUND
+    $pos_x:($sprite_square*$x*-1px - $sprite_square*0.5px) * $scale + $error_x;
+    $pos_y:($sprite_square*$y*-1px - $sprite_square*0.5px) * $scale + $error_y;
+    background-image:url($sprite_url);
+    background-size:$sprite_width*$scale $sprite_height*$scale;
+    background-position:$pos_x + ($dx)/2 $pos_y + ($dy)/2;
+    background-repeat:no-repeat;
+    background-color:$color;
+    @media only screen and (max-width: 768px){
+        $scale_r:$scale * $mobile_scale;
+        $pos_x:($sprite_square*$x*-1px - $sprite_square*0.5px) * $scale_r + $error_x;
+        $pos_y:($sprite_square*$y*-1px - $sprite_square*0.5px) * $scale_r + $error_y;
+        background-size:$sprite_width*$scale_r $sprite_height*$scale_r;
+        width:$dx;
+        height:$dy;
+        background-position:$pos_x + ($dx)/2 $pos_y + ($dy)/2;
+    }
+}
+// DOC: @include sprite($x:0, $y:0, $dx:75px, $dy:75px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+
+// LIMITED TEXT BOX
+@mixin text-block-limit($font-size:16px, $line-height:20px, $lines:5){
+    height:$line-height*$lines - 4px;
+    font-size:$font-size;
+    line-height:$line-height;
+    display:-webkit-box;
+    -webkit-line-clamp:$lines;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+// DOC: @include text-block-limit($font-size:16px, $line-height:20px, $lines:5);
+
+// DROP SHADOW
+@mixin drop-shadow($height:2px, $opacity:0.3){
+    border-bottom:$height solid rgba(0,0,0, $opacity);
+}
+// DOC: @include drop-shadow($height:2px, $opacity:0.3);
+
+// BOX-SIZING
+@mixin box-sizing(){
+    *,*:after,*:before{
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+    }
+}
+// DOC: @include box-sizing();
+
+// SCREEN WIDTH
+@mixin screen-width(){
+    width:$screen_width;
+    margin:auto;
+}
+
+// CLEAR SPACING
+@mixin clear-spacing(){
+    margin:0px;
+    padding:0px;
+}
+// DOC: @include clear-spacing();
+
+// INLINE
+@mixin inline(){
+    display: inline-block;
+    vertical-align: top;
+}
+// DOC: @include inline();
+
+// COLOR PLACEHOLDER
+@mixin color-placeholder($color:#000){
+    ::-webkit-input-placeholder{color:$color;}
+    :-moz-placeholder{color:$color;}
+    ::-moz-placeholder{color:$color;}
+    :-ms-input-placeholder{color:$color;}
+}
+// DOC: @include color-placeholder($color:#000);
+
+// USER SELECT
+@mixin user-select(){
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+}
+// DOC: @include user-select();

@@ -1,0 +1,32 @@
+<!-- PAGINATION: -->
+    <div class="paging" ng-hide="page.totalPages < 2">        
+        <span
+            class="page"
+            ng-hide="page.currentPage == 0 || page.totalPages < 2 || page.totalPages <= page.limit"
+            ng-click="page.first()">
+            &laquo;</span>
+        <span
+            class="page"
+            ng-hide="page.currentPage == 0 || page.totalPages < 2"
+            ng-click="page.previous()">
+            &lsaquo;</span>
+
+        <span
+            ng-repeat="i in page.repeat"
+            class="page{{ (page.currentPage == i) && '_active' || '' }}"
+            ng-click="page.update(i)">
+            {{ i+1 }}
+        </span>
+
+        <span
+            class="page"
+            ng-hide="page.currentPage == page.totalPages-1 || page.totalPages < 2"
+            ng-click="page.next()">
+            &rsaquo;</span>
+        <span
+            class="page"
+            ng-hide="page.currentPage == page.totalPages-1 || page.totalPages < 2 || page.totalPages <= page.limit"
+            ng-click="page.last()">
+            &raquo;</span>
+    </div>
+<!-- :PAGINATION -->

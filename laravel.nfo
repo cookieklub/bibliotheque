@@ -1,0 +1,106 @@
+// CONSOLE
+
+## update composer
+sudo /usr/local/bin/composer self-update
+
+## update laravel
+composer update
+
+#1 first go to directory and create project with composer:
+composer create-project laravel/laravel --prefer-dist
+
+#2 generate key & set it (not necessary, automatic)
+php artisan key:generate
+change into file: app/config/app.php
+
+#3 create controller
+php artisan controller:make my_ctrl
+
+#4 create migration
+php artisan migrate:make create_livres --create=books
+
+// REQUESTS
+# doc
+https://github.com/laravel/docs/blob/master/queries.md
+
+# insertion de donnees
+DB::table('auteurs')->insert(
+    array('nom' => 'Flaubert', 'prenom' => 'Gustave', 'naissance' => '1821-12-12')
+);
+
+# insertion de plusieurs entrees
+DB::table('auteurs')->insert(
+    array(
+        array('nom' => 'Raspail', 'prenom' => 'Jean', 'naissance' => '1929-01-24'),
+        array('nom' => 'Avril', 'prenom' => 'Nicole', 'naissance' => '1939-08-15'),
+        array('nom' => 'Pinger', 'prenom' => 'Robert', 'naissance' => '1919-07-19'),
+        array('nom' => 'Sibran', 'prenom' => 'Anne', 'naissance' => '1963-02-04'),
+        array('nom' => 'Saulers', 'prenom' => 'Pilippe', 'naissance' => '1969-06-12'),
+        array('nom' => 'July', 'prenom' => 'Serge', 'naissance' => '1942-12-27')
+    )
+);
+
+# recuperer des données
+$auteurs = DB::table('auteurs')->get();
+
+# affiner la recuperation
+$auteurs = DB::table('auteurs')->where('nom', 'Pinger')->get();
+
+# recuperer uniquement le premier
+$auteurs = DB::table('auteurs')->where('nom', '>', 'r')->first();
+
+# recuperer une seule colonne
+$auteurs = DB::table('auteurs')->where('id', 2)->pluck('nom');
+
+# recuperer certaines colonnes
+$auteurs = DB::table('auteurs')->select('nom', 'prenom')->where('nom', '>', 'r')->get();
+
+# combiner les clauses where
+$auteurs = DB::table('auteurs')->where('naissance', '<' , '1900-01-01')
+                               ->orWhere('naissance', '>' , '1960-01-01')
+                               ->get();
+
+# recuperer une valeur dans un intervalle
+$auteurs = DB::table('auteurs')->whereBetween('naissance', array('1930-01-01', '1960-01-01'))->get();
+
+# ordonner le resultat
+$auteurs = DB::table('auteurs')->select('nom')->orderBy('nom', 'desc')->get();
+
+# offset/limit
+$auteurs = DB::table('auteurs')->select('nom')->skip(3)->take(2)->get();
+
+# modifier des donnees
+$livres = DB::table('livres')
+    ->where('titre', '=', 'Pêcheurs de Lune')
+    ->update(array('id_auteur' => 3));
+
+# supprimer des donnees
+$livres = DB::table('livres')->where('id_auteur', '=', 5)->delete();
+
+# recuperer valeurs non definies
+$users = DB::table('users')->whereNull('updated_at')->get();
+
+# recuperer des donnees dont le contenu est/pas dans le tableau
+$users = DB::table('users')->whereIn('id', array(1, 2, 3))->get();
+$users = DB::table('users')->whereNotIn('id', array(1, 2, 3))->get();
+
+# recuperer des donnees entre
+$users = DB::table('users')->whereBetween('votes', array(1, 100))->get();
+
+# compter les donnes
+$auteurs = DB::table('auteurs')->get()->count();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

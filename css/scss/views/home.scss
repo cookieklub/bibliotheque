@@ -1,0 +1,325 @@
+.screen{
+	@include screen-width();
+	@include box-sizing();
+	margin-bottom: 200px;
+	.filters{
+		@include box-sizing();
+		width: 100%;
+
+		background-color: $ink_grey_light;
+		border-bottom: 3px solid rgba(0,0,0,0.3);
+		padding: 20px;
+		margin-bottom: 40px;
+		.button-frame, .input-frame{
+			@include inline();
+		}
+		.button-frame{
+			position: relative;
+			width: 66px;
+			.btn-tag{
+				margin: 0px;
+				height: 62px;
+			}
+			i{
+				@include sprite($x:3, $y:3, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+				position: absolute;
+				top:0px;
+				left:0px;
+			}
+		}
+		.input-frame{
+			width: $screen_width - 40px - 86px;
+			margin: 0px;
+			margin-right: 20px;
+		}
+	}
+	article{
+		position: relative;
+		width: 100%;
+		padding: 50px;
+		background-color: $ink_grey_light;
+		margin-bottom: 40px;
+		@include drop-shadow(4px);
+
+		color: $ink_blue_dark;
+
+		.flag-love{
+			position: absolute;
+			left:800px;top:-19px;
+			@include sprite($x:4, $y:0, $dx:90px, $dy:150px, $error_x:-33px, $error_y:-37.5px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-read{
+			position: absolute;
+			left:700px;top:-19px;
+			@include sprite($x:6, $y:0, $dx:90px, $dy:150px, $error_x:-33px, $error_y:-37.5px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-love-off{
+			position: absolute;
+			left:800px;top:-19px;
+			@include sprite($x:8, $y:1, $dx:90px, $dy:75px, $error_x:-33px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-read-off{
+			position: absolute;
+			left:700px;top:-19px;
+			@include sprite($x:8, $y:0, $dx:90px, $dy:75px, $error_x:-33px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-love:hover{
+			position: absolute;
+			left:800px;top:-19px;
+			@include sprite($x:4, $y:2, $dx:90px, $dy:150px, $error_x:-33px, $error_y:-37.5px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-read:hover{
+			position: absolute;
+			left:700px;top:-19px;
+			@include sprite($x:6, $y:2, $dx:90px, $dy:150px, $error_x:-33px, $error_y:-37.5px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-love-off:hover{
+			position: absolute;
+			left:800px;top:-19px;
+			@include sprite($x:8, $y:3, $dx:90px, $dy:75px, $error_x:-33px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.flag-read-off:hover{
+			position: absolute;
+			left:700px;top:-19px;
+			@include sprite($x:8, $y:2, $dx:90px, $dy:75px, $error_x:-33px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+		}
+		.title{
+			cursor: default;
+			@include clear-spacing();
+			font-size: 48px;
+			font-family: $font_bold;
+			width: 650px;
+		}
+		.info{
+			cursor: default;
+			@include clear-spacing();
+			font-size: 28px;
+			font-family: $font_bold;
+			margin:20px auto;
+		}
+		.info-title{
+			cursor: default;
+			@include clear-spacing();
+			font-size: 22px;
+			font-family: $font_roman;
+			margin:20px auto;
+			margin-top: 40px;
+		}
+		.sub-title{
+			width: 650px;
+			cursor: default;
+			@include clear-spacing();
+			font-size: 18px;
+			font-family: $font_roman;
+			margin-bottom: 30px;
+		}
+		.content{
+			.illustration{
+				width: 260px;
+				@include inline();
+				@include box-sizing();
+				i{
+					position: absolute;
+					left:-40px;top:180px;
+					z-index: 12000;
+					@include sprite($x:2, $y:0, $dx:150px, $dy:75px, $error_x:-37.5px, $error_y:0px, $scale:1.2, $mobile_scale:1, $color:transparent);
+				}
+				img{
+					height: 260px;
+					width: 260px;
+					background-color: rgba(0,0,0,0.2);
+					@include drop-shadow(3px);
+				}
+				.img{
+					height: 260px;
+					width: 260px;
+					background-color: rgba(0,0,0,0.2);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: cover;
+					@include drop-shadow(3px);
+				}
+				img:hover, .img:hover{
+					opacity: 0.8;
+				}
+			}
+			.infos{
+				@include inline();
+				@include box-sizing();
+				height: 260px;
+				width:$screen_width - 260px - 40px - 100px; 
+				margin-left:40px;
+				padding: 30px;
+				.row{
+					@include inline();
+					.info{
+						position: relative;
+						width: ($screen_width - 260px - 40px - 100px - 60px) / 2;
+						padding-left: 50px;
+
+						font-size: 16px;
+						font-family: $font_thin;
+						line-height: 40px;
+
+						a{
+							text-decoration: none;
+							color: $ink_blue_dark;
+						}
+
+						a:hover{
+							color: $ink_purple_light;
+						}
+
+						i{
+							position: absolute;
+							left: -20px;top:-15px;
+						}
+						.public{
+							@include sprite($x:0, $y:2, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+						}
+						.provenance{
+							@include sprite($x:1, $y:2, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+						}
+						.auteur{
+							@include sprite($x:2, $y:2, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+						}
+						.site{
+							@include sprite($x:3, $y:2, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+						}
+					}
+				}
+			}
+			.summary{
+				@include inline();
+				@include box-sizing();
+				@include drop-shadow(3px);
+				background-color: $ink_white;
+				height: 260px;
+				width:$screen_width - 260px - 40px - 100px; 
+				margin-left:40px;
+				padding: 30px;
+				h3{
+					cursor: default;
+					@include clear-spacing();
+					font-size: 21px;
+					font-family: $font_ultra_light;
+				}
+				p{
+					font-family: $font_roman;
+					@include text-block-limit($font-size:15px, $line-height:22px, $lines:7);
+
+				}
+			}
+			.tags-block{
+				@include inline();
+				@include box-sizing();
+				height: 260px;
+				width:$screen_width - 260px - 40px - 100px; 
+				margin-left:40px;
+				.button-frame, .input-frame{
+					@include inline();
+				}
+				.button-frame{
+					position: relative;
+					width: 66px;
+					.btn-tag{
+						margin: 0px;
+						height: 62px;
+					}
+					i{
+						@include sprite($x:0, $y:3, $dx:30px, $dy:30px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+						position: absolute;
+						top:16px;
+						left:19px;
+					}
+				}
+				.input-frame{
+					width: $screen_width - 260px - 40px - 100px - 86px;
+					margin-right: 20px;
+				}
+			}
+			.tags{
+				@include inline();
+				@include box-sizing();
+				@include drop-shadow(3px);
+				@include user-select();
+				background-color: $ink_white;
+				height: 269px;
+				width: 100%;
+				padding: 20px;
+				.frame{
+					overflow: auto;
+					height: 100%;
+					.tag{
+						cursor: default;
+						@include inline();
+						@include drop-shadow;
+						font-size: 18px;
+						background-color: $ink_purple;
+						color:$ink_white;
+						padding:14px 40px 10px 20px;
+						margin: 10px;
+						position: relative;
+						border-radius: 4px;
+						i{
+							cursor: pointer;
+							@include sprite($x:2, $y:1, $dx:30px, $dy:30px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+							position: absolute;
+							right:6px;top:8px;
+						}
+					}
+					.tag:hover{
+						background-color: $ink_purple_light;
+					}
+				}
+			}
+		}
+		.block{
+			@include inline();
+			@include box-sizing();
+			@include drop-shadow(3px);
+			background-color: $ink_white;
+			width:100%; 
+			padding: 30px;
+			margin-top: 40px;
+			h3{
+				@include clear-spacing();
+				font-size: 21px;
+				font-family: $font_ultra_light;
+			}
+			p{
+				font-family: $font_roman;
+				line-height:22px;
+				font-size:15px;
+
+			}
+		}
+		.form-new-book{
+			margin:30px auto;
+		}
+	}
+	display: none;
+	.pointer{
+		cursor: pointer;
+	}
+	.space{
+		height: 0px;
+		width:100%;
+		margin:40px auto;
+	}
+	.icon-plus{
+		@include inline();
+		position: relative;
+		width: 66px;
+		.btn-tag{
+			margin: 0px;
+			height: 62px;
+		}
+		i{
+			@include sprite($x:0, $y:3, $dx:30px, $dy:30px, $error_x:0px, $error_y:0px, $scale:1, $mobile_scale:1, $color:transparent);
+			position: absolute;
+			top:16px;
+			left:19px;
+		}
+	}
+}

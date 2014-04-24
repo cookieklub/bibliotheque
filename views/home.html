@@ -1,0 +1,91 @@
+<header>
+	<div class="content">
+		<div class="left">
+			<i class="new-book" ng-click="navigate('/livre/nouveau')"></i>
+			<i class="search{{ (filters) && '-cancel' || '' }}" ng-click="filters=!filters;reset()"></i>
+		</div>
+		<div class="right">
+			<div class="element{{ (filter.read) && ' active' || '' }}" ng-click="filter.read=true;reset()">J'ai lu</div>
+			<div class="element{{ (!filter.read) && ' active' || '' }}" ng-click="filter.read=false;reset()">J'aimerais lire</div>
+		</div>
+	</div>
+</header>
+
+<div class="screen">
+
+	<form ng-submit="reset()">
+		<div class="filters" ng-show="filters">
+			<i class="search"></i>
+			<div class="input-frame">
+				<input type="text" class="input-primary full-width" placeholder="recherche par mot-clé" ng-model="filter.search">
+			</div>
+			<div class="button-frame">
+				<button type="submit" class="btn-tag btn-purple full-width"><i></i></button>
+			</div>
+		
+			<div class="dropdown-group" dropdown="Selectionner un type" before="" after="" custom>
+	            <div class="dropdown-title"><span class="title">Type</span><i class="open"></i></div>
+	            <div class="dropdown-content">
+	            	<div class="dropdown-option" ng-click="filter_genre('tous')" close>Tous</div>
+	                <div class="dropdown-option" ng-repeat="genre in GENRES track by $index"
+	                     ng-click="filter_genre(genre.id)" close>{{ genre.name }}</div>
+	            </div>
+	        </div>
+		</div>
+	</form>
+
+	<article 	
+		class="pointer"
+		ng-click="navigate('/livre/' + book.id)"
+		ng-repeat="book in BOOKS"
+	>
+		<div class="flag-love" ng-show="book.love"></div>
+		<div class="title">{{ empty_data(book.titre, 'Aucun titre') }}</div>
+		<div class="sub-title">{{ empty_data(book.auteur, 'Auteur Inconnu') }}, {{ '«'+empty_data(book.titre, 'Aucun titre')+'»' }} , {{ empty_data(book.edition, 'Edition Inconnue') }}, {{ empty_data(book.annee, 'Année d\'édition inconnue') }}</div>
+		<div class="content">
+			<div class="illustration">
+				<i></i>
+				<img ng-src="{{ upload_url(book.illustration, 'no-image.png') }}" alt="illustration du livre: {{ book.titre }}">
+			</div>
+			<div class="summary">
+				<h3>Résumé</h3>
+				<p>{{ empty_data(book.resume, 'Aucun résumé') }}</p>
+			</div>
+		</div>
+		
+	</article>
+
+	<!-- PAGINATION: -->
+    <div class="paging" ng-hide="page.totalPages < 2">        
+        <span
+            class="page"
+            ng-hide="page.currentPage == 0 || page.totalPages < 2 || page.totalPages <= page.limit"
+            ng-click="page.first()">
+            &laquo;</span>
+        <span
+            class="page"
+            ng-hide="page.currentPage == 0 || page.totalPages < 2"
+            ng-click="page.previous()">
+            &lsaquo;</span>
+
+        <span
+            ng-repeat="i in page.repeat"
+            class="page{{ (page.currentPage == i) && '_active' || '' }}"
+            ng-click="page.update(i)">
+            {{ i+1 }}
+        </span>
+
+        <span
+            class="page"
+            ng-hide="page.currentPage == page.totalPages-1 || page.totalPages < 2"
+            ng-click="page.next()">
+            &rsaquo;</span>
+        <span
+            class="page"
+            ng-hide="page.currentPage == page.totalPages-1 || page.totalPages < 2 || page.totalPages <= page.limit"
+            ng-click="page.last()">
+            &raquo;</span>
+    </div>
+	<!-- :PAGINATION -->
+
+</div>

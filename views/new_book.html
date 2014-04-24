@@ -1,0 +1,99 @@
+<header>
+	<div class="content">
+		<div class="left">
+			<i class="back" ng-click="navigate('/')"><div class="menu-info">Annuler</div></i>
+		</div>
+		<div class="right">
+			<i class="save" ng-click="post_book()"><div class="menu-info">Enregistrer</div></i>
+		</div>
+	</div>
+</header>
+
+<div class="screen">
+	<article>
+		<div class="pointer flag-read{{ (!DATA.read) && '-off' || '' }}" ng-click="DATA.read=!DATA.read"></div>
+		<div class="pointer flag-love{{ (!DATA.love) && '-off' || '' }}" ng-click="DATA.love=!DATA.love"></div>
+
+		<div class="title">Nouveau Livre</div>
+
+		<form ng-submit="validate_form()" class="form-new-book">
+
+			<input type="text" class="input-primary full-width input-lg" placeholder="Titre" ng-model="DATA.titre">
+			<input type="text" class="input-primary full-width" placeholder="Auteur" ng-model="DATA.auteur">
+
+			<input type="text" class="input-primary input-half-left" placeholder="Editions" ng-model="DATA.edition">
+			<input type="text" class="input-primary input-half-right" placeholder="Année" ng-model="DATA.annee">
+
+			<input type="text" class="input-primary input-half-left" placeholder="Public visé" ng-model="DATA.public">
+			<input type="text" class="input-primary input-half-right" placeholder="Provenance" ng-model="DATA.provenance">
+
+			<input type="text" class="input-primary input-half-left" placeholder="Lien Internet" ng-model="DATA.site">
+			
+			<div class="dropdown-group-frame">
+				<div class="dropdown-group-small" dropdown="Selectionner un type" before="" after="" custom>
+		            <div class="dropdown-title"><span class="title">Type</span><i class="open"></i></div>
+		            <div class="dropdown-content">
+		                <div class="dropdown-option" ng-repeat="genre in GENRES track by $index"
+		                     ng-click="DATA.genre = genre.id" close>{{ genre.name }}</div>
+		            </div>
+		        </div>
+			</div>
+			<div class="icon-plus">
+				<button type="button" class="btn-tag btn-purple full-width" ng-click="add_genre()"><i></i></button>
+			</div>
+
+		</form>
+
+			<div class="space"></div>
+
+			<div class="content">
+				<div class="illustration">
+					<div class="img" id="preview"></div>
+					<button type="button" class="btn btn-purple full-width" trigger="#file">UPLOAD</button>
+				</div>
+
+				<form ng-submit="add_tag(DATA.new_tag)" class="inline-form">
+					<div class="tags-block">
+						<div class="input-frame">
+							<input type="text" class="input-primary full-width" placeholder="Ajoutez un mot-clé" ng-model="DATA.new_tag">
+						</div>
+						<div class="button-frame">
+							<button type="submit" class="btn-tag btn-purple full-width"><i></i></button>
+						</div>
+						<div class="tags">
+							<div class="frame" no-scroll>
+								<div class="tag" ng-repeat="tag in DATA.tags">
+									{{tag}}<i ng-click="remove_tag(tag)"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<div class="space"></div>
+
+		<form ng-submit="validate_form()" class="form-new-book">
+
+			<div class="info-title">Résumé</div>
+			<textarea class="input-primary full-width" rows="6" ng-model="DATA.resume"></textarea>
+
+			<div class="info-title">Avis Personnel</div>
+			<textarea class="input-primary full-width" rows="6" ng-model="DATA.avis"></textarea>
+
+			<div class="info-title">Pédagogie</div>
+			<textarea class="input-primary full-width" rows="6" ng-model="DATA.pedagogie"></textarea>
+
+			<div class="info-title">Biographie de l'auteur</div>
+			<textarea class="input-primary full-width" rows="6" ng-model="DATA.biographie"></textarea>
+
+			<button type="submit" class="btn btn-purple full-width">TERMINER</button>	
+
+		</form>	
+		
+	</article>
+</div>
+
+<!-- HIDDEN INPUTS -->
+<input style="display:none;" type="file" id="file" ng-model="image_file" ng-change="save_picture()">
