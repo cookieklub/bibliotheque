@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://cookieklub.com',
+	'url' => 'http://www.cookieklub.com/projects/bibliotheque/api',
 
 	/*
 	|--------------------------------------------------------------------------
