@@ -46,8 +46,9 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
         $scope.formData.setData(data);
         $scope.formData.send(base_url('livres/' + $routeParams.id + '/edit'), function(response){
             console.log(response);
-            alert('Livre modifié.');
-            window.location.href = '#/livre/' + $routeParams.id;
+            $rootScope.info_modal('Votre livre a bien été modifié.', function(){
+                $rootScope.navigate('/livre/' + $routeParams.id);
+            });
         });
     };
     $scope.validate_form = function(){
@@ -139,17 +140,18 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
         });
     };
     $scope.delete_book = function(){
-        if(confirm('Voulez vous vraiment supprimer ce livre?')){
+        $rootScope.confirm_modal('Etes vous sur de vouloir supprimer ce livre ?', function(){
             $http.delete(base_url('livres/' + $routeParams.id))
-            .error(function(response){
-                console.log(response);
-            })
-            .then(function(response){
-                console.log(response);
-                alert('Livre supprimé.');
-                window.location.href = '#/';
-            });
-        }
+                .error(function(response){
+                    console.log(response);
+                })
+                .then(function(response){
+                    console.log(response);
+                    $rootScope.info_modal('Votre livre a bien été supprimé.', function(){
+                        $rootScope.navigate('/');
+                    });
+                });
+        }, 'oui');
     };
     $scope.get_genres = function(){
         $http.get(base_url('genres'))

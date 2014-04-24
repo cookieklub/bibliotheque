@@ -77,6 +77,17 @@ form{
     border-top:3px solid rgba(0,0,0,0.2);
     border-bottom:none;
 }
+.btn-25{
+    display:inline-block;
+    vertical-align:top;
+    width:40%;
+    margin-right: 2%;
+}
+.btn-75{
+    display:inline-block;
+    vertical-align:top;
+    width:58%;
+}
 .btn-purple{
     @include user-select();
     background-color:$ink_purple;
@@ -92,6 +103,76 @@ form{
 .btn-purple:active{
     background-color:$ink_purple_light;
     color:$ink_white;
+    border-top:3px solid rgba(0,0,0,0.2);
+    border-bottom:none;
+}
+.btn-danger{
+    @include user-select();
+    background-color:$ink_red;
+    color:#FFF;
+    margin-top:20px;
+    cursor:pointer;
+    border-bottom:3px solid rgba(0,0,0,0.2);
+}
+.btn-danger:hover{
+    background-color:$ink_red_light;
+    color:#FFF;
+}
+.btn-danger:active{
+    background-color:$ink_red_light;
+    color:#FFF;
+    border-top:3px solid rgba(0,0,0,0.2);
+    border-bottom:none;
+}
+.btn-grey{
+    @include user-select();
+    background-color:$ink_grey_dark;
+    color:#FFF;
+    margin-top:20px;
+    cursor:pointer;
+    border-bottom:3px solid rgba(0,0,0,0.2);
+}
+.btn-grey-off{
+    @include user-select();
+    background-color:$ink_grey;
+    color:#000;
+    margin-top:20px;
+    cursor:default;
+    border-top:3px solid transparent;
+}
+.btn-grey:hover{
+    background-color:$ink_grey_light;
+    color:#000;
+}
+.btn-grey:active{
+    background-color:$ink_grey_light;
+    color:#000;
+    border-top:3px solid rgba(0,0,0,0.2);
+    border-bottom:none;
+}
+.btn-success{
+    @include user-select();
+    background-color:$ink_green;
+    color:#FFF;
+    margin-top:20px;
+    cursor:pointer;
+    border-bottom:3px solid rgba(0,0,0,0.2);
+}
+.btn-success-off{
+    @include user-select();
+    background-color:$ink_green_light_2;
+    color:#FFF;
+    margin-top:20px;
+    cursor:default;
+    border-top:3px solid transparent;
+}
+.btn-success:hover{
+    background-color:$ink_green_light_2;
+    color:#FFF;
+}
+.btn-success:active{
+    background-color:$ink_green_light_2;
+    color:#FFF;
     border-top:3px solid rgba(0,0,0,0.2);
     border-bottom:none;
 }

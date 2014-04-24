@@ -100,6 +100,17 @@ form {
   border-top: 3px solid rgba(0, 0, 0, 0.2);
   border-bottom: none; }
 
+.btn-25 {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+  margin-right: 2%; }
+
+.btn-75 {
+  display: inline-block;
+  vertical-align: top;
+  width: 58%; }
+
 .btn-purple {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -121,6 +132,106 @@ form {
 .btn-purple:active {
   background-color: #6b6477;
   color: white;
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  border-bottom: none; }
+
+.btn-danger {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #c0392b;
+  color: #FFF;
+  margin-top: 20px;
+  cursor: pointer;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2); }
+
+.btn-danger:hover {
+  background-color: #fa505b;
+  color: #FFF; }
+
+.btn-danger:active {
+  background-color: #fa505b;
+  color: #FFF;
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  border-bottom: none; }
+
+.btn-grey {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #aaaaaa;
+  color: #FFF;
+  margin-top: 20px;
+  cursor: pointer;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2); }
+
+.btn-grey-off {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #c1c7c9;
+  color: #000;
+  margin-top: 20px;
+  cursor: default;
+  border-top: 3px solid transparent; }
+
+.btn-grey:hover {
+  background-color: #ecf0f1;
+  color: #000; }
+
+.btn-grey:active {
+  background-color: #ecf0f1;
+  color: #000;
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  border-bottom: none; }
+
+.btn-success {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #51c043;
+  color: #FFF;
+  margin-top: 20px;
+  cursor: pointer;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2); }
+
+.btn-success-off {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #67d659;
+  color: #FFF;
+  margin-top: 20px;
+  cursor: default;
+  border-top: 3px solid transparent; }
+
+.btn-success:hover {
+  background-color: #67d659;
+  color: #FFF; }
+
+.btn-success:active {
+  background-color: #67d659;
+  color: #FFF;
   border-top: 3px solid rgba(0, 0, 0, 0.2);
   border-bottom: none; }
 

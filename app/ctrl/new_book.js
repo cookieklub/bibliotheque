@@ -43,8 +43,9 @@ function NewBookCtrl($scope, $rootScope, formData, $http){
         $scope.formData.setData(data);
         $scope.formData.send(base_url('livres'), function(response){
             console.log(response);
-            alert('Livre créé.');
-            window.location.href = '#/';
+            $rootScope.info_modal('Votre livre a bien été créé.', function(){
+                $rootScope.navigate('/');
+            });
         });
     };
 	$scope.validate_form = function(){

@@ -128,13 +128,45 @@ angular.module('Rootscope', [])
             });
         }
     };
+    //-----------
+    // CONFIRM MODAL
+    //-----------
+    $rootScope.confirm_modal = function(info, fctn, button_value){
+        button_value = defined_default(button_value, 'OK');
+
+        $('#confirm-modal .modal-block .content .info').text(array2str(info));
+        $('#confirm-modal #confirm-modal-confirm').text(button_value);
+
+        $('#confirm-modal .modal-mask').fadeIn(200, function(){
+            $('#confirm-modal .modal-block').effect('slide', {direction:'up'}, function(){
+                $('#confirm-modal #confirm-modal-confirm').focus();
+            });
+        });
+        // RESET BINDINGS
+        $('#confirm-modal .modal-mask').unbind('click').bind('click', function(){
+            $rootScope.dismiss('#confirm-modal');
+        });
+        $('#confirm-modal #confirm-modal-ok').unbind('click').bind('click', function(){
+            $rootScope.dismiss('#confirm-modal');
+        });
+
+        if(typeof(fctn) === 'function'){
+            $('#confirm-modal #confirm-modal-confirm').unbind('click').bind('click', function(){
+                $rootScope.dismiss('#confirm-modal', fctn);
+            });
+        }
+        else{
+            $('#confirm-modal #confirm-modal-confirm').unbind('click').bind('click', function(){
+                $rootScope.dismiss('#confirm-modal');
+            });
+        }
+    };
     //------------
     // ERROR MODAL
     //------------
     $rootScope.alert_error = function(info, fctn){
         info = (info != undefined) ? info : 'An unknown error occured.';
-        alert(array2str(info));
-        /*
+        
         $('#error-modal .modal-block .content .info-error').text(array2str(info));
         $('#error-modal .modal-mask').fadeIn(200, function(){
             $('#error-modal .modal-block').effect('slide', {direction:'up'}, function(){
@@ -148,7 +180,7 @@ angular.module('Rootscope', [])
         $('#error-modal #error-modal-ok').unbind('click').bind('click', function(){
             $rootScope.dismiss('#error-modal', fctn);
         });
-        */
+        
     };
     //-------------
     // CUSTOM MODAL
