@@ -22,9 +22,9 @@ class LivresController extends BaseController {
 			$qry->where('read', $read)->select('*');
 		}
 		if($genre != null){
-			$qry->join('genres', 'genres.id', '=', 'livres.genre_id')
+			$qry->where('genre_id', '=', intval($genre));
+			$qry->join('genres', 'livres.genre_id', '=', 'genres.id')
 				->select('livres.*', 'genres.name as genre_name');
-			$qry->where('genre_id', '=', intval($genre))->select('*');
 		}
 		if($search != null){
 			$search_array = explode(' ', $search);
@@ -54,11 +54,7 @@ class LivresController extends BaseController {
 		$response = array(
 			'error'=>false,
 			'books'=>$livres,
-			'count'=>$count,
-			'tests'=>array(
-				'search_input'=>$search,
-				'search_array'=>explode(' ', $search),
-			)
+			'count'=>$count
 		);
 		return Response::json($response);
 	}
@@ -139,6 +135,12 @@ class LivresController extends BaseController {
 	public function show($id)
 	{
 		$livre = DB::table('livres')->where('id', $id)->first();
+
+		if($livre->genre_id){
+			$genre = DB::table('genres')->where('id', $livre->genre_id)->first();
+			$livre->genre = $genre;
+			$livre->genre_name = $genre->name;
+		}
 
 		if( $livre ){
 			// PRE TREATMENT

@@ -236,7 +236,9 @@ angular.module('Directives', [])
             // functions
             $(window).click(function(){Dropdown.close_all();});
             // set default value
-            $(element).children('.dropdown-title').children('.title').html(attr.dropdown);
+            if(attr.dropdown){
+                $(element).children('.dropdown-title').children('.title').html(attr.dropdown);
+            }
             // dropdown click
             element.bind('click', function (e) {
                 e.stopPropagation();
@@ -252,7 +254,7 @@ angular.module('Directives', [])
                         $title.children('.title').html(attr.before + $target_text + attr.after);
                         // SAVE DATA
                         if(attr.obj == '' || attr.obj == undefined){
-                            dev.log('undef');
+                            //dev.log('undef');
                         }
                         else if(attr.obj.indexOf('.') === -1){
                             scope[attr.obj] = ($target_value);

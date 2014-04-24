@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="left">
 			<i class="new-book" ng-click="navigate('/livre/nouveau')"></i>
-			<i class="search{{ (filters) && '-cancel' || '' }}" ng-click="filters=!filters;reset()"></i>
+			<i class="search{{ (filters) && '-cancel' || '' }}" ng-click="filters=!filters;reset(filters)"></i>
 		</div>
 		<div class="right">
 			<div class="element{{ (filter.read) && ' active' || '' }}" ng-click="filter.read=true;reset()">J'ai lu</div>
@@ -36,7 +36,7 @@
 
 	<article 	
 		class="pointer"
-		ng-click="navigate('/livre/' + book.id)"
+		ng-click-js="new_tab('#/livre/{{book.id}}')"
 		ng-repeat="book in BOOKS"
 	>
 		<div class="flag-love" ng-show="book.love"></div>

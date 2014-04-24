@@ -3,14 +3,15 @@ function BookCtrl($scope, $rootScope, $routeParams, $http){
 		$http.get(base_url('livres/' + $routeParams.id))
 		.error(function(response){
 			console.log(response.error);
-			window.location.href = '/';
+			//window.location.href = '/';
 		})
 		.then(function(response){
 			if(response.data.error){
-				window.location.href = '/';
+				console.log(response.data);
+				//window.location.href = '/';
 			}
 			else{
-				console.log(response.data.book);
+				console.log(response.data);
 				$scope.BOOK = response.data.book;
 				$rootScope.screen_on();
 			}

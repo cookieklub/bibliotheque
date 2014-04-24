@@ -14,17 +14,15 @@ function HomeCtrl($scope, $rootScope, $http){
 			console.log(response.error);
 		})
 		.then(function(response){
-			console.log({
-				TESTS:response.data.tests,
-				RESPONSE:response
-			});
+			console.log(response.data.books);
 			$scope.BOOKS = response.data.books;
 			$scope.page.total(response.data.count);
 		});
 	};
-	$scope.reset = function(){
-		$scope.page.first();
-		$scope.get_books();
+	$scope.reset = function(reset){
+		if(!reset){
+			$scope.page.first();
+		}
 	};
 	$scope.get_genres = function(){
 		$http.get(base_url('genres'))

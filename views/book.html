@@ -28,9 +28,9 @@
 						<i class="public"></i>
 						{{ empty_data(BOOK.public, 'Aucune Information') }}
 					</div>
-					<div class="info pointer" ng-show="BOOK.site" ng-click-js="new_tab('{{ BOOK.site }}');">
-						<i class="site"></i>
-						<a href="">Site Internet</a>
+					<div class="info">
+						<i class="auteur"></i>
+						{{ empty_data(BOOK.genre_name, 'Aucune Information') }}
 					</div>
 				</div>
 				<div class="row">
@@ -38,12 +38,10 @@
 						<i class="provenance"></i>
 						{{ empty_data(BOOK.provenance, 'Aucune Information') }}
 					</div>
-					<!-- 
-					<div class="info">
-						<i class="auteur"></i>
-						<a>Biographie de l'auteur</a>
-					</div> 
-					-->
+					<div class="info pointer" ng-show="BOOK.site" ng-click-js="new_tab('{{ BOOK.site }}');">
+						<i class="site"></i>
+						<a href="">Site Internet</a>
+					</div>
 				</div>
 			</div>
 		</div>

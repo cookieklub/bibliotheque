@@ -17,7 +17,7 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
                     return {error:true, info:form[i].error}
                 }
             }
-            return {error:false, info:'saving fundraiser...'}
+            return {error:false, info:'saving book...'}
         };
         var form_result = $scope.form_test();
         if(form_result.error){$rootScope.alert_error(form_result.info);}else{$scope.post_book_validation();}
@@ -101,8 +101,9 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
         })
         .then(function(response){
             if(response.data.error){
-                window.location.href = '/';
+                //window.location.href = '#/';
             }
+            console.log(response.data.book);
             var d = response.data.book;
             $scope.DATA = {
                 id:d.id,
@@ -113,7 +114,7 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
                 public:d.public,
                 provenance:d.provenance,
                 site:d.site,
-                genre:d.genre,
+                genre:d.genre_id,
                 resume:d.resume,
                 avis:d.avis,
                 pedagogie:d.pedagogie,
@@ -124,9 +125,17 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
                 tags:d.mots_cles,
                 image_update:false
             };
-            console.log($scope.DATA.tags);
             $scope.DATA.tags = ($scope.DATA.tags.length == 1 && $scope.DATA.tags[0] == '') ? [] : $scope.DATA.tags;
             $('#preview').css('background-image','url('+$rootScope.upload_url(d.illustration)+')');
+            if($scope.DATA.genre){
+                for(genre in $scope.GENRES){
+                    if($scope.GENRES[genre].id.toString() == $scope.DATA.genre.toString()){
+                        $('.dropdown-title .title').html($scope.GENRES[genre].name);
+                        break;
+                    }
+                }
+                
+            }
         });
     };
     $scope.delete_book = function(){
@@ -146,10 +155,12 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
         $http.get(base_url('genres'))
         .error(function(response){
             console.log(response.error);
+            //window.location.href = '#/';
         })
         .then(function(response){
-            //console.log(response.data);
+            console.log(response.data);
             $scope.GENRES = response.data.genres;
+            $scope.get_book();
         });
     };
     $scope.add_genre = function(){
@@ -171,7 +182,6 @@ function EditBookCtrl($scope, $rootScope, $http, $routeParams, formData){
     $scope.init = function(){
         $scope.get_genres();
         $scope.formData = new formData($scope);
-        $scope.get_book();
         $rootScope.screen_on();
     };
     $scope.init();
