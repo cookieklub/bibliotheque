@@ -18,7 +18,7 @@ var $environments = {
 		host:'http://localhost:8888/'
 	},
 	remote:{
-		url:'projects/bibliotheque/', // url:'http://www.cookieklub.com/projects/bibliotheque/',
+		url:'', // url:'http://www.cookieklub.com/projects/bibliotheque/',
 		host:'http://cookieklub.com/'
 	}
 };
