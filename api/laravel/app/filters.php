@@ -13,7 +13,12 @@
 
 App::before(function($request)
 {
-	//
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept');
+        header('Access-Control-Request-Method:GET, POST, PUT, DELETE');
+        exit;
+    }
 });
 
 
