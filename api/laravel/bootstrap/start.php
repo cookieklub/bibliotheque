@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('MacBook-Pro-de-nabster'),
+	'local' => array('MacBook-Pro-de-nabster.local'),
 	'remote' => array('http://cookieklub.com'),
 
 ));

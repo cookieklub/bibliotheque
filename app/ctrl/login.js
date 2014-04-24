@@ -3,10 +3,9 @@ function LoginCtrl($scope, $rootScope){
 		if($scope.password == '$'){
 			$rootScope.session = true;
 			$rootScope.navigate('/');
-			console.log('okok');
 		}
 		else{
-			console.log('oh oh');
+			alert('Mauvais mot de passe.');
 		}
 	};
 	$scope.init = function(){
