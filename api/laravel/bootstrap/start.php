@@ -26,15 +26,10 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('localhost:8888'),
-	'remote' => array('http://cookieklub.com'),
+	'local' => array('local'),
+	'remote' => array('ftp.cookieklub.com'),
 
 ));
-
-$environments = array(
-   'local' => array('localhost'),
-   'remote' => array('http://cookieklub.com')
-);
 
 /*
 |--------------------------------------------------------------------------
