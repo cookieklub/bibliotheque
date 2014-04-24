@@ -1,17 +1,31 @@
-.block{
-	@include drop-shadow(3px);
+.login-block{
 	@include box-sizing();
+	text-align: center;
 	margin: auto;
-	width:600px;
-	background: $ink_grey_light;
+	width:400px;
 	padding: 40px;
 	h1{
+		@include clear-spacing();
 		text-align: center;
-		font-size: 38px;
-		color: $ink_blue_dark;
+		font-size: 30px;
+		color: $ink_grey_light;
+		font-family: $font_roman;
+	}
+	h2{
+		@include clear-spacing();
+		text-align: center;
+		font-size: 24px;
+		color: $ink_grey_light;
 		font-family: $font_ultra_light;
+	}
+	i{
+		@include sprite($x:0, $y:4, $dx:60px, $dy:60px, $error_x:0px, $error_y:0px, $scale:0.7, $mobile_scale:1, $color:transparent);
+		position: relative;
+		top:62px;
 	}
 	input{
 		text-align: center;
+		color:$ink_purple;
+		border-radius: 4px;
 	}
 }

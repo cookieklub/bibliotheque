@@ -34,6 +34,7 @@
 		}
 	}
 	article{
+		@include radius($radius:6px);
 		position: relative;
 		width: 100%;
 		padding: 50px;
@@ -126,15 +127,17 @@
 					@include sprite($x:2, $y:0, $dx:150px, $dy:75px, $error_x:-37.5px, $error_y:0px, $scale:1.2, $mobile_scale:1, $color:transparent);
 				}
 				img{
+					@include radius($radius:4px);
 					height: 260px;
 					width: 260px;
-					background-color: rgba(0,0,0,0.2);
+					background-color: $ink_white;
 					@include drop-shadow(3px);
 				}
 				.img{
+					@include radius($radius:4px);
 					height: 260px;
 					width: 260px;
-					background-color: rgba(0,0,0,0.2);
+					background-color: $ink_white;
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: cover;
@@ -191,6 +194,7 @@
 				}
 			}
 			.summary{
+				@include radius($radius:4px);
 				@include inline();
 				@include box-sizing();
 				@include drop-shadow(3px);
@@ -240,6 +244,7 @@
 				}
 			}
 			.tags{
+				@include radius($radius:4px);
 				@include inline();
 				@include box-sizing();
 				@include drop-shadow(3px);
@@ -276,6 +281,7 @@
 			}
 		}
 		.block{
+			@include radius($radius:4px);
 			@include inline();
 			@include box-sizing();
 			@include drop-shadow(3px);

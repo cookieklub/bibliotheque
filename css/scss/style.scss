@@ -20,6 +20,7 @@ button:focus, input:focus, select:focus, textarea:focus{
 button{
     border:none;
     cursor:pointer;
+    @include radius($radius:4px);
 }
 form{
 	@include clear-spacing();
@@ -28,6 +29,7 @@ form{
 	@include inline();
 }
 .input-primary{
+	@include radius($radius:4px);
     display:block;
     margin:0px;
     padding:14px 40px 12px 40px;
@@ -63,6 +65,7 @@ form{
 
 }
 .btn{
+	@include radius($radius:4px);
     font-family:$font_roman;
     font-size:24px;
     text-transform:uppercase;
@@ -249,7 +252,7 @@ header{
 				@include inline();
 			}
 			.print{
-				@include sprite($x:1, $y:4, $dx:75px, $dy:60px, $error_x:0px, $error_y:2px, $scale:0.8, $mobile_scale:1, $color:transparent);
+				@include sprite($x:1, $y:4, $dx:65px, $dy:60px, $error_x:0px, $error_y:2px, $scale:0.8, $mobile_scale:1, $color:transparent);
 				@include inline();
 			}
 			i{
@@ -308,6 +311,7 @@ header{
 	    font-weight:bold;
 	}
 	.page,.page_active{
+		@include radius($radius:4px);
 		@include inline();
 		padding:10px 16px;padding-top: 14px;
 	    display:inline-block;

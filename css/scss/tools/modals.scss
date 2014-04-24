@@ -107,6 +107,10 @@ $btn_share_width:($btn_height * 4)+($btn_spacing * 3);
 .modal-block{
     .block{
         @include box-sizing();
+        @include drop-shadow(3px);
+        @include radius();
+        margin: auto;
+        background-color:$ink_grey_light;
         margin-top:10%;
         padding:0px;
         width:460px;

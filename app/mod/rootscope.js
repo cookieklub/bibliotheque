@@ -33,7 +33,7 @@ angular.module('Rootscope', [])
         }
     };
     $rootScope.screen_on = function(delay){
-        if(!$rootScope.session){
+        if($.cookie('session') != 'connected'){
             window.location.href = '#/login';
         }
 		if($(".screen").css("display") == "none"){

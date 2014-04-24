@@ -136,7 +136,7 @@ class LivresController extends BaseController {
 	{
 		$livre = DB::table('livres')->where('id', $id)->first();
 
-		if($livre->genre_id){
+		if($livre->genre_id != 'undefined'){
 			$genre = DB::table('genres')->where('id', $livre->genre_id)->first();
 			$livre->genre = $genre;
 			$livre->genre_name = $genre->name;
