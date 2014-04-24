@@ -33,9 +33,9 @@ angular.module('Rootscope', [])
         }
     };
     $rootScope.screen_on = function(delay){
-        // if(!$rootScope.session){
-        //     window.location.href = '#/login';
-        // }
+        if(!$rootScope.session){
+            window.location.href = '#/login';
+        }
 		if($(".screen").css("display") == "none"){
         	$(".screen").delay($rootScope.empty_data(delay, 0)).fadeIn(300);
         }
