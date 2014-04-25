@@ -27,12 +27,10 @@
 							<i class="provenance"></i>
 							Provenance: {{ empty_data(BOOK.provenance, 'Aucune Information') }}
 						</div>
-						<!-- 
 						<div class="info">
 							<i class="auteur"></i>
-							<a>Biographie de l'auteur</a>
-						</div> 
-						-->
+							{{ empty_data(BOOK.genre_name, 'Aucune Information') }}
+						</div>
 					</div>
 				</div>
 			</div>
